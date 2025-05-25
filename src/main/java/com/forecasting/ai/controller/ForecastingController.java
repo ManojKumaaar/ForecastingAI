@@ -21,13 +21,13 @@ public class ForecastingController {
 
     String queryNul="";
     @GetMapping("/chatAI")
-    public String searchAI(@RequestParam String user ,@RequestParam String query) throws Exception {
-        return geminiService.getForecast(false, query, user);
+    public String searchAI(@RequestParam String shopId ,@RequestParam String query) throws Exception {
+        return geminiService.getForecast(false, query, shopId);
     }
 
     @GetMapping("/getForecast")
-    public String generateForecast(@RequestParam String user) throws Exception {
-        return geminiService.getForecast(false, queryNul, user);
+    public String generateForecast(@RequestParam String shopId) throws Exception {
+        return geminiService.getForecast(false, queryNul, shopId);
     }
 //    @Scheduled(cron = "0 0 0 25 * ?")
     @Scheduled(fixedRate = 200000)

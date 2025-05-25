@@ -27,7 +27,13 @@ public class GeminiService {
     String apiKey = "AIzaSyCpRx2rRxH9Gevoow4o-AOvFygGp0ogoNw";
     if(!isChat) {
 //        prompt = isScheduler ? "by using above data Can you give forecast summary using this data only html no extra text starts from <html> and ends with </html>" : "Can you give me forecast in json for next month, product name and key observation";
-        prompt ="Can you give me forecast in json for next month, product name and key observation";
+        prompt ="Can you give me forecast in json for next month in this format({\n" +
+                "  \"forecast\": {\n" +
+                "    \"yyyy-mm\": [\n" +
+                "      {\n" +
+                "        \"product_name\":"  +
+                "        \"predicted_quantity\": 10,\n" +
+                "        \"key_observation\":";
 
     }
     System.out.println("Your Prompt "+prompt);
