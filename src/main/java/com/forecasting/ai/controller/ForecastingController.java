@@ -29,10 +29,15 @@ public class ForecastingController {
     public String generateForecast(@RequestParam String shopId) throws Exception {
         return geminiService.getForecast(false, queryNul, shopId);
     }
-//    @Scheduled(cron = "0 0 0 25 * ?")
-    @Scheduled(fixedRate = 200000)
+    @Scheduled(cron = "0 0 0 25 * ?")
+//    @Scheduled(fixedRate = 200000)
     public void scheduledForecast() throws Exception {
         geminiService.getForecast(true, queryNul, null);
+    }
+    //to generate mail
+    @GetMapping("/getMail")
+    public String generateMail() throws Exception {
+        return geminiService.getForecast(true, queryNul, null);
     }
 }
 

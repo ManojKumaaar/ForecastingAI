@@ -12,10 +12,13 @@ public class ForeCastDAO {
 //    private static final String USER = "postgres";
 //    private static final String PASSWORD = "password";
 
-    public static String callDAO(String user) {
+    public static String callDAO(String shopId) {
         StringBuilder sb = new StringBuilder();
         // Basic SELECT query
-        String sql = "SELECT TO_CHAR(pi.created_at, 'YYYY-MM') AS year_month,pi.quantity,p.name AS product_name FROM product_in pi JOIN product p ON pi.prod_id = p.id where type='OUT' and shop_id=3";
+        if (shopId == null || shopId.isEmpty()) {
+            shopId="1";
+        }
+        String sql = "SELECT TO_CHAR(pi.created_at, 'YYYY-MM') AS year_month,pi.quantity,p.name AS product_name FROM product_in pi JOIN product p ON pi.prod_id = p.id where type='OUT' and shop_id="+shopId;
 //                +"\tEXTRACT(YEAR FROM sm.date) = 2024\n" +
 //                "    AND EXTRACT(MONTH FROM sm.date) = 12;";
 
