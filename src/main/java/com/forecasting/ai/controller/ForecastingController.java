@@ -1,17 +1,14 @@
 package com.forecasting.ai.controller;
 
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import com.forecasting.ai.service.GeminiService;
-import com.forecasting.ai.request.ForecastRequest;
 
 import java.io.IOException;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class ForecastingController {
